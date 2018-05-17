@@ -290,7 +290,8 @@ void Client::handleNewUser(char *buff, int len) {
 	int userid = getUserIDFromEmail(server.conn,email);
 	if(userid == 0) {
 		userid = registerUser(server.conn,email,pass);
-		profileid = makeNewProfile(server.conn,nick,userid);
+		//profileid = makeNewProfile(server.conn,nick,userid);
+		profileid = makeNewProfileWithAll(server.conn,nick,uniquenick,userid,email);
 		if (id) formatSend(sd,true,0,"\\nur\\\\userid\\%d\\profileid\\%d\\id\\%d",userid,profileid,id); else
 		formatSend(sd,true,0,"\\nur\\\\userid\\%d\\profileid\\%d",userid,profileid);
 		return;

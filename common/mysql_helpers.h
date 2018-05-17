@@ -13,6 +13,7 @@ void getUserIDPass(MYSQL *sql, int userid, char *dst, int dstlen);
 int getProfileIDFromUniquenick(MYSQL *sql, char *uniquenick);
 void getProfileIDPass(MYSQL *sql, int profileid, char *dst, int dstlen);
 int makeNewProfileWithUniquenick(MYSQL *sql, char *nick, char *uniquenick, int userid);
+int makeNewProfileWithAll(MYSQL *sql, char *nick, char *uniquenick, int userid, char *email);
 bool validProfileID(MYSQL *sql, int profileid);
 int registerUser(MYSQL *sql,char *email,char *pass);
 bool getProfileInfo(MYSQL *sql,int profileid,GPIInfoCache *info);

@@ -96,7 +96,7 @@ int getProfileIDFromNickEmail(MYSQL *sql, char *nick, char *email) {
 	if(query == NULL) return 0;
 	mysql_real_escape_string(sql,nick,nick,strlen(nick));
 	mysql_real_escape_string(sql,email,email,strlen(email));
-	sprintf_s(query,len,"SELECT `profileid` FROM `GameTracker`.`profiles` INNER JOIN `GameTracker`.`users` ON `GameTracker`.`profiles`.`userid` = `GameTracker`.`users`.`userid` WHERE `email` = '%s' AND `nick` = '%s' AND `GameTracker`.`profiles`.`deleted` = 0",email,nick);
+	sprintf_s(query,len,"SELECT `profileid` FROM `GameTracker`.`profiles` INNER JOIN `GameTracker`.`users` ON `GameTracker`.`profiles`.`userid` = `GameTracker`.`users`.`userid` WHERE `GameTracker`.`users`.`email` = '%s' AND `nick` = '%s' AND `GameTracker`.`profiles`.`deleted` = 0",email,nick);
 	if (mysql_query(sql, query)) {
 		fprintf(stderr, "%s\n", mysql_error(sql));
 		return 0;
@@ -229,6 +229,31 @@ int makeNewProfileWithUniquenick(MYSQL *sql, char *nick, char *uniquenick, int u
 	}
   	mysql_free_result(res);
 	free((void *)query);	
+	return profileid;
+}
+int makeNewProfileWithAll(MYSQL *sql, char *nick, char *uniquenick, int userid, char *email) {
+	MYSQL_RES *res;
+	MYSQL_ROW row;
+	int len = 1024 + strlen(nick) + strlen(email);
+	char *query = (char *)malloc(len);
+	if(!query) return 0;
+	int profileid = 0;
+	mysql_real_escape_string(sql,nick,nick,strlen(nick));
+	mysql_real_escape_string(sql,uniquenick,uniquenick,strlen(uniquenick));
+	mysql_real_escape_string(sql,email,email,strlen(email));
+	sprintf_s(query,len,"INSERT INTO `GameTracker`.`profiles` (`userid`,`nick`,`uniquenick`,`email`) VALUES (%d,\"%s\",\"%s\",\"%s\")",userid,nick,uniquenick,email);
+	if (mysql_query(sql, query)) {
+		fprintf(stderr, "%s\n", mysql_error(sql));
+		free((void *)query);
+		return 0;
+	}
+	mysql_query(sql,"SELECT LAST_INSERT_ID()");
+	res = mysql_store_result(sql);
+	while ((row = mysql_fetch_row(res)) != NULL) {
+		profileid = atoi(row[0]);
+	}
+	mysql_free_result(res);
+	free((void *)query);
 	return profileid;
 }
 bool validProfileID(MYSQL *sql, int profileid) {
