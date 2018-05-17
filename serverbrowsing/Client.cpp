@@ -300,7 +300,7 @@ void Client::sendGroups() {
 			BufferWriteByte(&buff,&len,0); //on gamespys server there is a bug where a 2nd null byte is put after each word here so do it too for compatibility
 		}
 	}
-	sprintf_s(query,sizeof(query),"SELECT `groupid`,`name`,`maxwaiting`,`other` FROM `Gamemaster`.`grouplist` WHERE `gameid` = '%d'",queryGame->id);
+	sprintf_s(query,sizeof(query),"SELECT `groupid`,`name`,`maxwaiting`,`other` FROM `GameTracker`.`grouplist` WHERE `gameid` = '%d'",queryGame->id);
 	if (mysql_query(conn, query)) {
 		fprintf(stderr, "%s\n", mysql_error(conn));
 		free((void *)p);

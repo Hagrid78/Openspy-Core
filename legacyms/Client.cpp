@@ -215,7 +215,7 @@ void Client::sendGroups(gameInfo *queryGame) {
 	MYSQL_ROW row;
 	MYSQL_RES *res;
 	memset(&otherbuff,0,sizeof(otherbuff));
-	sprintf_s(query,sizeof(query),"SELECT `groupid`,`name`,`maxwaiting`,`password`,`other` FROM `Gamemaster`.`grouplist` WHERE `gameid` = '%d'",queryGame->id);
+	sprintf_s(query,sizeof(query),"SELECT `groupid`,`name`,`maxwaiting`,`password`,`other` FROM `GameTracker`.`grouplist` WHERE `gameid` = '%d'",queryGame->id);
 	if (mysql_query(conn, query)) {
 		fprintf(stderr, "%s\n", mysql_error(conn));
 		deleteMe = true;
