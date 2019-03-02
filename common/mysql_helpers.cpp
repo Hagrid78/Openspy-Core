@@ -295,7 +295,7 @@ bool getProfileInfo(MYSQL *sql,int profileid,GPIInfoCache *info) {
 				 a = (char *)malloc(strlen(b) + 1); \
 				 strcpy(a,b);\
 				} 
-	sprintf_s(query,sizeof(query),"SELECT `nick`,`uniquenick`,`email`,`firstname`,`lastname`,`homepage`,`icquin`,`zipcode`,`countrycode`,`lon`,`lat`,`birthday`,`sex`,`publicmask`,`aimname`,`pic`,`ooc`,`ind`,`inc`,`mar`,`chc`,`i1`,`o1`,`conn`,`GameTracker`.`profiles`.`userid`,`place`,DAY(birthday), YEAR(birthday), MONTH(birthday), `aimname` FROM `GameTracker`.`profiles` INNER JOIN `GameTracker`.`users` ON `GameTracker`.`profiles`.`userid` = `GameTracker`.`users`.`userid` WHERE `profileid` = %d AND `GameTracker`.`profiles`.`deleted` = 0 AND `GameTracker`.`users`.`deleted` = 0",profileid);
+	sprintf_s(query,sizeof(query),"SELECT `nick`,`uniquenick`,profiles.`email`,`firstname`,`lastname`,`homepage`,`icquin`,`zipcode`,`countrycode`,`lon`,`lat`,`birthday`,`sex`,`publicmask`,`aimname`,`pic`,`ooc`,`ind`,`inc`,`mar`,`chc`,`i1`,`o1`,`conn`,`GameTracker`.`profiles`.`userid`,`place`,DAY(birthday), YEAR(birthday), MONTH(birthday), `aimname` FROM `GameTracker`.`profiles` INNER JOIN `GameTracker`.`users` ON `GameTracker`.`profiles`.`userid` = `GameTracker`.`users`.`userid` WHERE `profileid` = %d AND `GameTracker`.`profiles`.`deleted` = 0 AND `GameTracker`.`users`.`deleted` = 0",profileid);
 	if (mysql_query(sql, query)) {
 		fprintf(stderr, "%s\n", mysql_error(sql));
 		return false;
