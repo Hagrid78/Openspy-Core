@@ -10,7 +10,7 @@
 #define WHOWAS_TIMEOUT 3600 //how long until you remove something from the /whowas list
 #define QUEUEPORT 33610
 #define PINGTIME 80
-#define MAX_BUFF 1024
+#define MAX_BUFF 4096
 #define MAX_BUFF_DOUBLE MAX_BUFF*2
 
 #ifndef _NO_CPP
