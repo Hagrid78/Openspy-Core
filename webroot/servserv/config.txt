@@ -1,0 +1,41 @@
+<qmmaps>
+</qmmaps>
+
+<manglers>
+</manglers>
+
+<pingservers>
+  127.0.0.1
+</pingservers>
+
+<pingduration>
+  reps = 1
+  timeout = 1000
+  low = 100
+  med = 400
+</pingduration>
+
+<ladders>
+</ladders>
+
+<vip>
+</vip>
+
+<NAT>
+  retryInterval = 1000
+  manglerRetries = 25
+  manglerInterval = 300
+  keepaliveInterval = 15000
+  portTimeout = 10000
+  roundTimeout = 10000
+</NAT>
+
+<custom>
+  restricted = 1
+</custom>
+
+<QMBot>
+</QMBot>
+
+<Ladders>
+</Ladders>
