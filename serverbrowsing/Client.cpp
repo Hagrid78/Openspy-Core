@@ -573,9 +573,9 @@ int Client::handleInfoRequest(uint8_t *buff, uint32_t len) {
 	msg.data = (void *)&qrRules;
 	qrRules.ipaddr = (ip);
 	qrRules.port = (port);
+    sendServerRules(qrRules.server_rules,ip,port);
+    freeServerRuleList(qrRules.server_rules);
 	servoptions.sendMsgProc(moduleInfo.name,"qr",(void *)&msg,sizeof(qrServerMsg));
-	sendServerRules(qrRules.server_rules,ip,port);
-	freeServerRuleList(qrRules.server_rules);
 	return len;
 }
 void Client::sendServerRules(std::list<customKey *> server_rules,uint32_t ip, uint16_t port) {
