@@ -1,4 +1,11 @@
+DELIMITER ;
+USE Matrix;
+
+DROP FUNCTION IF EXISTS matrixqueue;
+CREATE FUNCTION matrixqueue RETURNS INTEGER SONAME 'udf_matrixqueue.so';
+
 DELIMITER //
+DROP PROCEDURE IF EXISTS SetGlobalOper//
 CREATE PROCEDURE SetGlobalOper (IN vprofileid INT, IN vrightsmask INT, IN vemail varchar(50), IN vname varchar(30))
 BEGIN
 DECLARE msgid int;
@@ -13,6 +20,7 @@ END//
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS DelGlobalOper//
 CREATE PROCEDURE DelGlobalOper (IN vprofileid INT)
 BEGIN
 DECLARE msgid int;
@@ -24,6 +32,7 @@ DELIMITER ;
 
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS SetUserMode//
 CREATE PROCEDURE SetUserMode(IN vchanmask TEXT, IN vcommenttxt TEXT, IN vexpires TIMESTAMP, IN vhostmask TEXT, IN vmachineid TEXT, IN vmodeflags INT, IN vprofileid INT, IN vsetbyhost TEXT, IN vsetbynick TEXT, IN vsetbypid TEXT)
 BEGIN
 DECLARE usermodeid int;
@@ -37,6 +46,7 @@ DELIMITER ;
 
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS DelUserMode//
 CREATE PROCEDURE DelUserMode(IN vusermodeid INT)
 BEGIN
 DECLARE msgid int;
@@ -48,6 +58,7 @@ DELIMITER ;
 
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS SetChanProps//
 CREATE PROCEDURE SetChanProps(IN vchanmask TEXT, in vchankey TEXT, IN vcommentxt TEXT, IN ventrymsg TEXT, IN vexpires TIMESTAMP, IN vgroupname TEXT, IN vchanlimit INT, IN vmodes TEXT, IN vonlyowner INT, IN vsetbynick TEXT, IN vsetbyhost TEXT, IN vsetbypid INT, IN vtopic TEXT, IN vkickexisting INT)
 BEGIN
 DECLARE msgid int;
@@ -64,6 +75,7 @@ END//
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS DelChanProps//
 CREATE PROCEDURE DelChanProps(IN vchanmask TEXT,  IN vkickexisting INT)
 BEGIN
 DECLARE msgid int;
@@ -74,6 +86,7 @@ END//
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS SetChanClient//
 CREATE PROCEDURE SetChanClient(IN vchanmask TEXT,  IN vgameid INT)
 BEGIN
 DECLARE msgid int;
@@ -84,6 +97,7 @@ END//
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS DelChanClient//
 CREATE PROCEDURE DelChanClient(IN vchanmask TEXT,  IN vgameid INT)
 BEGIN
 DECLARE msgid int;
@@ -94,6 +108,7 @@ END//
 DELIMITER ;
 
 DELIMITER //
+DROP PROCEDURE IF EXISTS AuthClient//
 CREATE PROCEDURE AuthClient(IN vnick TEXT, IN vemail TEXT, IN pass TEXT, IN connid INT, IN sendnotice INT)
 -- pass is md5 hashed
 -- if email is empty nick = uniquenick
