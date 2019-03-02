@@ -142,7 +142,7 @@ uint32_t getPublicMask(MYSQL *sql, int userid) {
    MYSQL_ROW row;
    char query[256];
    mysql_ping(sql);
-   sprintf_s(query,sizeof(query),"SELECT  `publicmask` FROM `GameTracker`.`users` WHERE `userid` = '%d' AND `deleted` = 0",userid);
+   sprintf_s(query,sizeof(query),"SELECT  `publicmask` FROM `GameTracker`.`profiles` WHERE `userid` = '%d' AND `deleted` = 0",userid);
    if (mysql_query(sql, query)) {
       fprintf(stderr, "%s\n", mysql_error(sql));
 	return 0;
