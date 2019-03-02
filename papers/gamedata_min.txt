@@ -1,0 +1,15 @@
+1979|Command & Conquer 3 Kanes Wrath|cc3kw|TPLstA
+1814|Command & Conquer 3: Expansion Pack 1|cc3xp1|BhcJLQ
+1815|Command & Conquer 3: Expansion Pack 1 Automatch|cc3xp1am|BhcJLQ
+1975|Command & Conquer 3: Kane's Wrath Match Broadcast Clone|cc3xp1mb|BhcJLQ
+1422|Command & Conquer 3: Tiberium Wars|cc3tibwars|E4F3HB
+1561|Command & Conquer 3: Tiberium Wars Automatch|cc3tibwarsam|E4F3HB
+2100|Command & Conquer 3: Tiberium Wars CD Key Auth|cc3tibwarscd|E4F3HB
+2101|Command & Conquer 3: Tiberium Wars CD Key Automatch|cc3tibwarscdam|E4F3HB
+1525|Command & Conquer 3: Tiberium Wars Match Broadcast|cc3tibwarsmb|GmMKoK
+675|Command & Conquer Generals|ccgenerals|h5T2f6
+823|Command & Conquer Generals Zero Hour|ccgenzh|D6s9k3
+2128|Command & Conquer Red Alert 3|redalert3pc|uBZwpf
+2094|Command and Conquer 3 Kanes Wrath CD Key Auth|cc3kwcd|TPLstA
+2095|Command and Conquer 3 Kanes Wrath CD Key Auth Automatch|cc3kwcdam|TPLstA
+577|Command and Conquer: Renegade|ccrenegade|tY1S8q
