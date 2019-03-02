@@ -1,0 +1,13 @@
+#!/bin/bash
+mysql_user=$1
+mysql_password=$2
+email=$3
+password=$4
+nick=$5
+uniquenick=$6
+
+# Add user
+userid=$(mysql -u$mysql_user -p$mysql_password -D GameTracker -se "INSERT INTO users(email,password) VALUES('$email','$password');SELECT LAST_INSERT_ID();")
+
+# Add user profile
+mysql -u$mysql_user -p$mysql_password -D GameTracker -e "INSERT INTO profiles(userid,nick,uniquenick,email) VALUES($userid,'$nick','$uniquenick','$email');";
