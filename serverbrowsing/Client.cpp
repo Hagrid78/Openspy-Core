@@ -474,7 +474,7 @@ void Client::addServerBuff(char **buff,int *len, serverList slist) {
 	}
 }
 void Client::sendServers() {
-	uint8_t buff[MAX_OUTGOING_REQUEST_SIZE * 2] = { 0 };
+	uint8_t buff[MAX_OUTGOING_REQUEST_SIZE * 2] = { 0 }; //* 2 just in case it goes over the buffer size
 	uint8_t *p;
 	uint16_t num_params = 0;
 	uint32_t len = 0;

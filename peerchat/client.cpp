@@ -2105,7 +2105,7 @@ void Client::reduceWeight() {
 	sendToClient(sbuff2);
  }
  void Client::parseIncoming() {
-	//this function might need to be rewritten
+	//TODO: this function might need to be rewritten
 	last_reply = time(NULL);
 	char *p = (char *)&buff;	
 	char *x;
