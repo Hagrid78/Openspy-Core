@@ -580,7 +580,7 @@ int Client::handleInfoRequest(uint8_t *buff, uint32_t len) {
 }
 void Client::sendServerRules(std::list<customKey *> server_rules,uint32_t ip, uint16_t port) {
 	std::list<customKey *>::iterator it, end;
-	size_t outbuffsize = 4096;
+	size_t outbuffsize = OUTGOING_BUFFER_SIZE;
 	uint8_t* outbuff = (uint8_t*)calloc(1,outbuffsize);
 	uint8_t *p,*x;
 	uint32_t len = 0;
