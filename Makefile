@@ -23,5 +23,5 @@ debug:
 	cd legacystats && make debug && cd ..
 	cd legacystatsprocessor && make debug && cd ..
 clean:
-	rm  openspy/modules/*.so
+	rm openspy/modules/*.so
 	rm openspy/openspy
