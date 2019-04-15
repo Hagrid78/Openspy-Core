@@ -17,7 +17,7 @@ file(GLOB COMMON_SRC
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
-find_package(Boost 1.65)
+find_package(Boost 1.65 REQUIRED)
 find_package(Threads REQUIRED)
 find_package(MySQL REQUIRED)
 find_package(Lua51 REQUIRED)
