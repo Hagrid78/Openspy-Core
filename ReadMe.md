@@ -92,6 +92,7 @@ Edit openspy config:
     nano /opt/openspy/openspy.cfg
 
 Replace **password_here** with your password
+
 Replace 192.168.1.7 with your public server IP and save
 
 ### Configure nginx
@@ -175,15 +176,15 @@ Restart nginx:
 
 Network ports used by openspy:
 
-tcp 6667 # GameSpy Matrix Clone (peerchat)
-udp 27900 # GameSpy Query and Reporting Server (heartbeat)
-udp 27901 # GameSpy NAT Negotiation
-tcp 28900 # GameSpy Legacy Master Server
-tcp 28910 # GameSpy Server Browsing server
-tcp 29900 # GameSpy Presence Server Clone
-tcp 29901 # GameSpy Search Manager (player searching, gpsp.gamespy.com)
-udp 29910 # GameSpy Master Server
-tcp 29920 # GameSpy Master Server
+    tcp 6667 # GameSpy Matrix Clone (peerchat)
+    udp 27900 # GameSpy Query and Reporting Server (heartbeat)
+    udp 27901 # GameSpy NAT Negotiation
+    tcp 28900 # GameSpy Legacy Master Server
+    tcp 28910 # GameSpy Server Browsing server
+    tcp 29900 # GameSpy Presence Server Clone
+    tcp 29901 # GameSpy Search Manager (player searching, gpsp.gamespy.com)
+    udp 29910 # GameSpy Master Server
+    tcp 29920 # GameSpy Master Server
 
 Install UFW:
 
