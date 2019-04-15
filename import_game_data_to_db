@@ -7,10 +7,10 @@ groupid=1
 # Clear 'games' and 'grouplist' tables
 mysql -u$mysql_user -p$mysql_password -D GameTracker -e "TRUNCATE games;TRUNCATE grouplist;"
 
-cat $inputfile | while IFS="|" read pid game gamename secretkey; do
+grep -v '^#' $inputfile | while IFS="|" read pid game gamename secretkey; do
     # Add game data
     echo "INSERT INTO games(id,gamename,secretkey,queryport,disabledservices,backendflags,keylist,keytypelist) VALUES('$pid','$gamename','$secretkey','27900','0','0','','');"
-	# Add default channel for game
+    # Add default channel for game
     echo "INSERT INTO grouplist(gameid,groupid,name,hostname,numplayers,maxwaiting,numwaiting,numservers,password,other) VALUES('$pid', '$groupid', 'Default', '0', '0', '0', '0', '0', '', '');"
-	(( groupid++ ))
+    (( groupid++ ))
 done | mysql -u$mysql_user -p$mysql_password -D GameTracker;
