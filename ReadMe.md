@@ -39,7 +39,7 @@ Copy configuration and sql files:
 
 Install dependencies:
 
-    apt install lua5.1 mysql-server geoip-bin
+    apt install lua5.1 mysql-server geoip-bin libgeoip-dev libmysqlclient-dev liblua5.1-0-dev libmysqld-dev
 
 Create new user:
 
